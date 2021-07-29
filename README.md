@@ -1,2 +1,2 @@
 # vamosContar
-Exercício estrutura de repetição
+Exercício para treinar estrutura de repetição
