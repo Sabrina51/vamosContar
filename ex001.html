@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    <style>
+        body {
+            background-color: rgb(72, 151, 151);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 100px;
+        }
+
+        header {
+            font-size: 40px;
+        }
+
+        section {
+            padding: 10px 0px 10px 0px;
+            margin-top: 20px;
+        }
+
+        header,section {
+            background-color: rgba(240, 248, 255, 0.911);
+            width: 500px;
+            border-radius: 10px;
+        }
+
+        footer{
+            padding: 10px;
+        }
+
+ 
+    </style>
+</head>
+
+<body>
+    <header>Super Contador!</header>
+    <section>
+        <div>
+            <p>Inicio: <input type="number" name="inicio" id="inicio"></p>
+            <p>Fim: <input type="number" name="fim" id="fim"></p>
+            <p>Passo: <input type="number" name="passo" id="passo"></p>
+            <p><input type="button" value="Cantar" id="contar" onclick="contar()"></p>
+        </div>
+        <div id="contagem">
+            <p>Preparando contagem...</p>
+        </div>
+    </section>
+    <footer>&copy; um dia a gente chega lá</footer>
+
+    <script>
+        function contar() {
+            let inicioElemento = document.getElementById('inicio');
+            let fimElemento = document.getElementById('fim');
+            let passoElemento = document.getElementById('passo');
+            let contagemElemento = document.getElementById('contagem');
+
+            if (inicioElemento.value.length == 0 || fimElemento.value.length == 0 || passoElemento.value.length == 0) {
+                contagemElemento.innerHTML = ('Impossivel contar!');
+            } else {
+                contagemElemento.innerHTML = 'Contando: ';
+                let inicio = Number(inicioElemento.value); /*convertando a string pra numerico*/
+                let fim = Number(fimElemento.value);
+                let passo = Number(passoElemento.value);
+                if(passo <= 0){
+                    alert('Passo invalido. Considerando PASSO 1');
+                    passo = 1;
+                }
+
+                if (inicio < fim) {
+                    for (let i = inicio; i < fim; i += passo) {
+                        contagemElemento.innerHTML += `${i} &#128073`;
+                    }
+                } else {
+                    for (let i = inicio; i > fim; i -= passo) {
+                        contagemElemento.innerHTML += `${i} &#128073`;
+                    }
+                }
+                contagemElemento.innerHTML += `&#127937`;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
